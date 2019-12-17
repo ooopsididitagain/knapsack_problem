@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+# Date: 17.12.2019
+# Status: Done
+# Author: Glebov I.A.
 
 import random
 
-bag_weight_max = 15  # Задаю вес рюкзака
+bag_weight_max = 15
 bag_weight_now = 0
 bag = []
 
@@ -60,11 +63,11 @@ def gen_dict():
         weight = dict(zip(['Weight'], gen_list()))
         price = dict(zip(['Price'], gen_list()))
         currency_code = dict(zip(['Сurrency_code'], ['$']))
-        Weight_measure = dict(zip(['Weight_measure'], ['kg']))
+        weight_measure = dict(zip(['Weight_measure'], ['kg']))
         product_info.update(weight)
         product_info.update(price)
         product_info.update(currency_code)
-        product_info.update(Weight_measure)
+        product_info.update(weight_measure)
     return product_info
 
 
@@ -98,11 +101,12 @@ def sort_and_append(Param1='Price', Param2='Weight'):
 
     global bag_weight_now
     for i in sorted(gen_data().items(), key=lambda it: (it[1].get(Param1), it[1].get(Param2)), reverse=True):
-        if (bag_weight_now + i[1].get(Param2)) != bag_weight_max and (bag_weight_now + i[1].get(Param2)) < bag_weight_max:
+        if (bag_weight_now + i[1].get(Param2)) != bag_weight_max and (
+                bag_weight_now + i[1].get(Param2)) < bag_weight_max:
             bag.append(i)
             bag_weight_now += i[1].get(Param2)
     return dict(bag)
 
 
-
-print(sort_and_append())
+if __name__ == '__main__':
+    sort_and_append()

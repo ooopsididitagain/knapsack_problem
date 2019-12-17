@@ -15,3 +15,47 @@ NP-полная задача комбинаторной оптимизации.
 из заданного множества предметов со свойствами «стоимость» и «вес» 
 требуется отобрать подмножество с максимальной полной стоимостью, 
 соблюдая при этом ограничение на суммарный вес.
+
+
+
+В данном примере создается словарь с товарами:
+    {'1_Product': {'Price': 10,
+                   'Weight': 4,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '2_Product': {'Price': 10,
+                   'Weight': 7,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '3_Product': {'Price': 4,
+                   'Weight': 8,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '4_Product': {'Price': 4,
+                   'Weight': 11,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '5_Product': {'Price': 6,
+                   'Weight': 11,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '6_Product': {'Price': 8,
+                   'Weight': 12,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '7_Product': {'Price': 12,
+                   'Weight': 12,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '8_Product': {'Price': 12,
+                   'Weight': 2,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'},
+     '9_Product': {'Price': 6,
+                   'Weight': 6,
+                   'Weight_measure': 'kg',
+                   'Сurrency_code': '$'}}
+
+Данный словарь сортируется по цене и весу. Подходящие товары добавляются в рюкзак. 
+Вместимость рюкзака задается переменной. 
+
