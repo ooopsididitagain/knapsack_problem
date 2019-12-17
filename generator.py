@@ -1,9 +1,9 @@
-# 0/1 example for bag
+#!/usr/bin/python3
 
 import random
-import pprint
 
-bag_weight = 15  # Задаю вес рюкзака
+bag_weight_max = 15  # Задаю вес рюкзака
+bag_weight_now = 0
 bag = []
 
 
@@ -85,18 +85,22 @@ def gen_data():
     return data
 
 
-pp = pprint.PrettyPrinter(indent=2)
-pp.pprint(gen_data())
+def sort_and_append(Param1='Price', Param2='Weight'):
+    '''
+        Функция сортирует полученные данные по двум параметрам (в нашем случае Цена и Вес) и
+            добавляет подходящие товары в bag. (Пока вместимость сумки не превысит 15 кг).
+            Вместимость сумки задается переменной bag_weight_max
 
-# print(data.get('Product1'))
-#
-# for i in sorted(data.items(), key=lambda it: (it[1][1], it[1][0]), reverse=True):
-#     print(i)
-#     while bag_weight > 0:
-#         if bag_weight - int(i[1][0][0]) > 0:
-#             print(int(i[1][0][0]))
-#             bag_weight -= int(i[1][0][0])
-#             bag.append(i)
-#             print(bag_weight)
-#
-# print(bag)
+        Возвращает словарь.
+    '''
+
+    global bag_weight_now
+    for i in sorted(gen_data().items(), key=lambda it: (it[1].get(Param1), it[1].get(Param2)), reverse=True):
+        if (bag_weight_now + i[1].get(Param1)) < bag_weight_max:
+            bag.append(i)
+            bag_weight_now += i[1].get(Param2)
+    return dict(bag)
+
+# Ошибка вычисления суммы веса сумки
+
+print(sort_and_append())
